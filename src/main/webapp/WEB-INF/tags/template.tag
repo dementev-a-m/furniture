@@ -9,7 +9,7 @@
     <title><jsp:invoke fragment="title"/></title>
 
     <!-- Bootstrap Core CSS -->
-    <spring:url value="resources/css/bootstrap.css" var="bootstrap"/>
+    <spring:url value="/resources/css/bootstrap.css" var="bootstrap"/>
     <link href="${bootstrap}" rel="stylesheet" />
 
     <!-- Custom CSS -->
