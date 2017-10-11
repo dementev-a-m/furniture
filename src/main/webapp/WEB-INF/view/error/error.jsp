@@ -1,16 +1,24 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: adementev
-  Date: 09.10.2017
-  Time: 17:13
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Error</title>
-</head>
-<body>
-    <h1>Страница не найдена</h1>
-</body>
-</html>
+<!DOCTYPE html>
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
+
+<page:template>
+    <jsp:body>
+        <div class="container">
+
+        <!-- Portfolio Section -->
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <h1></h1>
+                    <img class="img-responsive img-portfolio img-hover" src="http://socext.com/images/404_page.png" alt="">
+                    <h1>Страница не найдена!</h1>
+                </div>
+            </div>
+        </div>
+    </jsp:body>
+</page:template>
