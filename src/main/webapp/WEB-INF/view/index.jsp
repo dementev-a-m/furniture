@@ -63,7 +63,7 @@
         <div class="col-lg-12">
             <h2 class="page-header">Portfolio Heading</h2>
         </div>
-        <c:forEach var="item" items="${values}">
+        <c:forEach var="item" items="${values.products}">
 
             <div class="col-md-4 col-sm-6">
                 <a href="/portfolio/item/${item.id}">

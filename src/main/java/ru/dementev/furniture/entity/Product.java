@@ -48,7 +48,7 @@ public class Product implements Serializable{
 
     @Lob
     @Column(name = "photo")
-    @Basic(fetch = FetchType.LAZY)
+    @Basic(fetch = FetchType.EAGER)
     public byte[] getPhoto() {
         return photo;
     }
