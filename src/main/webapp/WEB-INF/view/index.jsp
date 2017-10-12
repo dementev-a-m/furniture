@@ -56,7 +56,7 @@
     <div class="jumbotron">
         <h1>Оставте заявку, и мы с Вам свяжемся! </h1>
         <%--<p>...</p>--%>
-        <p><a class="btn btn-primary btn-lg" role="button">Оставить заявку</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" href="application">Оставить заявку</a></p>
     </div>
 
     <div class="row">
