@@ -27,7 +27,7 @@ public class ApplicationController {
     @RequestMapping("/created")
     public ModelAndView createApplication(@ModelAttribute("customer")Customer customer ){
     ModelAndView modelAndView = new ModelAndView("application/created");
-        System.out.println(customer.toString());
+        service.set(customer);
     return modelAndView;
     }
 }

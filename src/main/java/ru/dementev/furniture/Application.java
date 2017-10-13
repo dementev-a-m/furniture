@@ -6,6 +6,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import ru.dementev.furniture.config.CacheConfig;
 import ru.dementev.furniture.config.WebConfig;
 
 import javax.servlet.ServletContext;
@@ -21,7 +22,7 @@ public class Application extends AbstractAnnotationConfigDispatcherServletInitia
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context =  new AnnotationConfigWebApplicationContext();
-        context.register(WebConfig.class);
+        context.register(WebConfig.class, CacheConfig.class);
 
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet(context);

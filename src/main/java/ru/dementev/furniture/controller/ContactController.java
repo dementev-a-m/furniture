@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class ContactController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getContactInfo(){
-
         return new ModelAndView("contact/contact");
     }
 }

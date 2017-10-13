@@ -1,6 +1,7 @@
 package ru.dementev.furniture.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.dementev.furniture.entity.Offer;
 import ru.dementev.furniture.repository.OfferRepository;
@@ -35,7 +36,8 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
+    @Cacheable("activeOffer")
     public List<Offer> getByActive() {
-        return null;//repository.findByActiveIsTrue();
+        return repository.findByActiveIsTrue();
     }
 }
