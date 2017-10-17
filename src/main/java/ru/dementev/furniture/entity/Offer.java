@@ -27,9 +27,8 @@ public class Offer {
     public void setId(long id) {
         this.id = id;
     }
-    @Lob
-    @Column(name = "photo")
-    @Basic(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "image_id")
     public Image getImage() {
         return image;
     }
@@ -37,6 +36,7 @@ public class Offer {
     public void setImage(Image image) {
         this.image = image;
     }
+
     @Column(name = "title", length = 55)
     public String getTitle() {
         return title;

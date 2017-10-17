@@ -1,6 +1,7 @@
 package ru.dementev.furniture.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.dementev.furniture.entity.Offer;
@@ -30,13 +31,14 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
+    @CacheEvict(value = "offers", allEntries = true)
     public String remove(long id) {
         repository.delete(id);
         return "Запись удалена!";
     }
 
     @Override
-    @Cacheable("activeOffer")
+    @Cacheable("offers")
     public List<Offer> getByActive() {
         return repository.findByActiveIsTrue();
     }

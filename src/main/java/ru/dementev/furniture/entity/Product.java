@@ -12,11 +12,11 @@ import java.util.Arrays;
 @Table(name = "product")
 public class Product implements Serializable{
     private long id;
-    private byte[] photo;
+    private Image image;
     private String name;
     private double price;
-    private ProductTypeEnum type;
-
+    private String type;
+    private String description;
     public Product() {
     }
     @Id
@@ -46,22 +46,29 @@ public class Product implements Serializable{
         this.price = price;
     }
 
-    @Lob
-    @Column(name = "photo")
-    @Basic(fetch = FetchType.EAGER)
-    public byte[] getPhoto() {
-        return photo;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "image_id")
+    public Image getImage() {
+        return image;
     }
 
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
+    public void setImage(Image image) {
+        this.image = image;
     }
     @Column(name = "type")
-    public ProductTypeEnum getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(ProductTypeEnum type) {
+    public void setType(String type) {
         this.type = type;
+    }
+    @Column(name = "description", length = 1000)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

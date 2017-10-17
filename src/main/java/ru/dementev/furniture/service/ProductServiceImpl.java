@@ -1,6 +1,7 @@
 package ru.dementev.furniture.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.dementev.furniture.entity.Product;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository repository;
-    @Cacheable("portfolio")
+    @Cacheable(value = "portfolio",sync = true)
     public List<Product> getAll() {
         return repository.findAll();
     }
@@ -27,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
     public Product set(Product product) {
         return repository.save(product);
     }
-
+    @CacheEvict(value = "portfolio", allEntries = true)
     public String remove(long id) {
         repository.delete(id);
         return "Запись удалена";

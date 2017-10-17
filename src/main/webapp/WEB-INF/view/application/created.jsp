@@ -6,7 +6,7 @@
 
 <page:template>
     <jsp:body>
-
+        <header id="myCarousel" class="carousel slide"/>
         <div class="container">
             <div class="jumbotron">
                 <h2>Заявка успешно создана!</h2>

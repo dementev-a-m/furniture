@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ru.dementev.furniture.entity.Offer;
 import ru.dementev.furniture.entity.Product;
+import ru.dementev.furniture.service.OfferService;
 import ru.dementev.furniture.service.ProductService;
 
 import java.util.List;
@@ -19,21 +21,28 @@ import java.util.List;
 @RequestMapping("/portfolio")
 public class PortfolioController {
 
-
     @Autowired
-    private ProductService service;
+    private ProductService productService;
+    @Autowired
+    private OfferService offerService;
+
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getPotfolio(){
-
-        List<Product> list =  service.getAll();
-        return  new ModelAndView("portfolio/portfolio", "values",list);
+        ModelAndView modelAndView = new ModelAndView("portfolio/portfolio");
+        List<Product> products =  productService.getAll();
+        List<Offer> offers = offerService.getByActive();
+        modelAndView.addObject("products",products);
+        modelAndView.addObject("offers",offers);
+        return modelAndView;
     }
 
     @RequestMapping(value = "item/{id}", method = RequestMethod.GET)
     public ModelAndView getPotfolioItem(@PathVariable long id){
-
-        Product product =  service.getById(id);
-        return  new ModelAndView("portfolio/portfolio_item", "product",product);
+        ModelAndView modelAndView = new ModelAndView("portfolio/portfolio_item");
+        Product product =  productService.getById(id);
+        modelAndView.addObject("product",product);
+        modelAndView.addObject("offers",offerService.getByActive());
+        return  modelAndView;
     }
 }

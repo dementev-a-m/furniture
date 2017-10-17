@@ -8,7 +8,57 @@
 
 <page:template>
     <jsp:body>
+        <header id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <c:set var="count" value="0" scope="page" />
+                <c:forEach var="item" items="${offers}">
 
+                    <c:if test="${count==0}">
+                        <li data-target="#myCarousel" data-slide-to="${count}" class="active"></li>
+                    </c:if>
+                    <c:if test="${count !=0}">
+                        <li data-target="#myCarousel" data-slide-to="${count}"></li>
+                    </c:if>
+                    <c:set var="count" value="${count + 1}" scope="page"/>
+                </c:forEach>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <c:set var="count" value="0" scope="page" />
+                <c:forEach var="item" items="${offers}">
+
+                    <c:if test="${count==0}">
+                        <div class="item active">
+                            <div class="fill" style="background-image:url('/image/${item.image.id}');"></div>
+                            <div class="carousel-caption">
+                                <h2>${item.title}</h2>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${count !=0}">
+                        <div class="item">
+                            <div class="fill" style="background-image:url('/image/${item.image.id}');"></div>
+                            <div class="carousel-caption">
+                                <h2>${item.title}</h2>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:set var="count" value="${count + 1}" scope="page"/>
+
+
+                </c:forEach>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+
+        </header>
         <!-- Page Content -->
         <div class="container">
 

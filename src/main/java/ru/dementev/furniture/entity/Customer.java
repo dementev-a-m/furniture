@@ -6,8 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by adementev on 28.07.2017.
@@ -15,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "customer")
 
-public class Customer implements Serializable{
+public class Customer implements Serializable {
     private long id;
     private int version;
     private String firstName;

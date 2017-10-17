@@ -11,35 +11,47 @@
 
 <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <c:set var="count" value="0" scope="page" />
+            <c:forEach var="item" items="${offers}">
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&amp;text=Slide One');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 1</h2>
-            </div>
-        </div>
-        <div class="item active">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&amp;text=Slide Two');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 2</h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&amp;text=Slide Three');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 3</h2>
-            </div>
-        </div>
-    </div>
+                <c:if test="${count==0}">
+                    <li data-target="#myCarousel" data-slide-to="${count}" class="active"></li>
+                </c:if>
+                <c:if test="${count !=0}">
+                    <li data-target="#myCarousel" data-slide-to="${count}"></li>
+                </c:if>
+                <c:set var="count" value="${count + 1}" scope="page"/>
+            </c:forEach>
+        </ol>
 
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <c:set var="count" value="0" scope="page" />
+            <c:forEach var="item" items="${offers}">
+
+                <c:if test="${count==0}">
+                    <div class="item active">
+                        <div class="fill" style="background-image:url('/image/${item.image.id}');"></div>
+                        <div class="carousel-caption">
+                            <h2>${item.title}</h2>
+                        </div>
+                    </div>
+                </c:if>
+                <c:if test="${count !=0}">
+                    <div class="item">
+                        <div class="fill" style="background-image:url('/image/${item.image.id}');"></div>
+                        <div class="carousel-caption">
+                            <h2>${item.title}</h2>
+                        </div>
+                    </div>
+                </c:if>
+                <c:set var="count" value="${count + 1}" scope="page"/>
+
+
+            </c:forEach>
+        </div>
     <!-- Controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="icon-prev"></span>
@@ -54,20 +66,20 @@
 <div class="container">
     <p></p>
     <div class="jumbotron">
-        <h1>Оставте заявку, и мы с Вам свяжемся! </h1>
+        <h1>Оставьте заявку, и мы с Вами свяжемся! </h1>
         <%--<p>...</p>--%>
         <p><a class="btn btn-primary btn-lg" role="button" href="application">Оставить заявку</a></p>
     </div>
 
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Portfolio Heading</h2>
+            <h2 class="page-header">Портфолио</h2>
         </div>
-        <c:forEach var="item" items="${values.products}">
+        <c:forEach var="item" items="${products}">
 
             <div class="col-md-4 col-sm-6">
                 <a href="/portfolio/item/${item.id}">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive img-portfolio img-thumbnail" src="/image/${item.image.id}" alt="">
                 </a>
             </div>
         </c:forEach>

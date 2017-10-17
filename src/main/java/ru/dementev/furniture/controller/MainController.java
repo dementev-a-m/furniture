@@ -10,7 +10,9 @@ import ru.dementev.furniture.entity.Offer;
 import ru.dementev.furniture.entity.Product;
 import ru.dementev.furniture.service.OfferService;
 import ru.dementev.furniture.service.ProductService;
+import sun.misc.BASE64Encoder;
 
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -28,7 +30,7 @@ public class MainController {
     public ModelAndView getMainView() {
         ModelAndView modelAndView = new ModelAndView("index");
         List<Product> products =  productService.getAll();
-        List<Offer> offers =offerService.getByActive();
+        List<Offer> offers = offerService.getByActive();
         modelAndView.addObject("products",products);
         modelAndView.addObject("offers",offers);
         return modelAndView;
