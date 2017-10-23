@@ -2,6 +2,8 @@ package ru.dementev.furniture.entity;
 
 
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import ru.dementev.furniture.entity.enums.ProductTypeEnum;
 
 import javax.persistence.*;
@@ -20,7 +22,7 @@ public class Product implements Serializable{
     public Product() {
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public long getId() {
         return id;
@@ -70,5 +72,17 @@ public class Product implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", image=" + image +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

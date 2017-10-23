@@ -59,12 +59,12 @@
             <spring_form:form method="post" modelAttribute="product" action="/admin/product_added">
                 <p class="input-group">
                     <span class="input-group-lg ">Название:</span>
-                    <spring_form:input  path="name" type="text" class="form-control" name = "name" placeholder="${product.name}" ></spring_form:input>
+                    <spring_form:input  path="name" type="text" class="form-control" name = "name"  value = "${product.name}"></spring_form:input>
                 </p>
                 <h2></h2>
                 <p class="input-group">
                     <span class="input-group-lg">Цена:</span>
-                    <spring_form:input path="price" type="text" class="form-control" name = "price" placeholder="${product.price}" ></spring_form:input>
+                    <spring_form:input path="price" type="text" class="form-control" name = "price" value="${product.price}" ></spring_form:input>
                 </p>
                 <h2></h2>
                 <p class="input-group">
@@ -77,7 +77,7 @@
                 <h2></h2>
                 <p class="input-group-lg">
                     <span class="input-group-lg">Описание: </span>
-                    <spring_form:textarea path ="description"  type="text" class="form-control" name = "description" placeholder="${product.description}" ></spring_form:textarea>
+                    <spring_form:textarea path ="description"  type="text" class="form-control" name = "description" value="${product.description}" ></spring_form:textarea>
                 </p>
 
                 <h2></h2>
