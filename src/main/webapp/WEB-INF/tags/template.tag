@@ -6,6 +6,7 @@
 <%@attribute name="title" fragment="true" %>
 
 <head>
+    <meta charset="utf-8">
     <title><jsp:invoke fragment="title"/>Форма мебели</title>
 
     <!-- Bootstrap Core CSS -->

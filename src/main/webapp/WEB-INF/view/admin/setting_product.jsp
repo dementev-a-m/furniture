@@ -41,7 +41,7 @@
                     <a href="/contact">Контакты</a>
                 </li>
                 <li>
-                    <a href="/contact">Выход</a>
+                    <a href="<c:url value="/logout" />">Выход</a>
                 </li>
             </ul>
         </div>

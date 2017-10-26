@@ -1,6 +1,8 @@
 package ru.dementev.furniture.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import java.util.Map;
  * Created by adementev on 17.10.2017.
  */
 @Controller
+
 @RequestMapping("/admin")
 
 public class AdminProductController {
@@ -25,6 +28,7 @@ public class AdminProductController {
 
     @Autowired
     private ProductService productService;
+    @Secured(value={"ROLE_ADMIN"})
     @RequestMapping(value = "product_add",method = RequestMethod.GET)
     public ModelAndView getAddProductView(){
         ModelAndView modelAndView = new ModelAndView("admin/add_product");
@@ -35,6 +39,7 @@ public class AdminProductController {
 
         return modelAndView;
     }
+    @Secured(value={"ROLE_ADMIN"})
     @RequestMapping(value = "setting_product",method = RequestMethod.GET)
     public ModelAndView getSettingProductsView(){
         ModelAndView modelAndView = new ModelAndView("admin/setting_product");
@@ -42,13 +47,14 @@ public class AdminProductController {
 
         return modelAndView;
     }
+    @Secured(value={"ROLE_ADMIN"})
     @RequestMapping("product_added")
     public ModelAndView createdProduct(@ModelAttribute("product")Product product ){
         ModelAndView modelAndView = new ModelAndView("application/created");
         productService.set(product);
         return modelAndView;
     }
-
+    @Secured(value={"ROLE_ADMIN"})
     @RequestMapping(value = "product_item/{id}", method = RequestMethod.GET)
     public ModelAndView getPotfolioItem(@PathVariable long id){
         ModelAndView modelAndView = new ModelAndView("admin/product_item");
@@ -58,7 +64,7 @@ public class AdminProductController {
         return  modelAndView;
     }
 
-
+    @Secured(value={"ROLE_ADMIN"})
     @RequestMapping(value = "product_item/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deletePortfolioItem(@PathVariable long id){
         productService.remove(id);
@@ -66,6 +72,11 @@ public class AdminProductController {
         modelAndView.addObject("products", productService.getAll());
 
         return modelAndView;
+    }
+
+    @RequestMapping( method = RequestMethod.GET)
+    public ModelAndView admin() {
+        return new ModelAndView("admin/admin");
     }
     private void createdListType(){
         typeList.put("Kitchen","Кухня");

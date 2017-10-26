@@ -54,37 +54,8 @@
     <p></p>
 
     <div class="row">
-        <div class="jumbotron">
 
-            <spring_form:form method="post" modelAttribute="product" action="product_added">
-                <p class="input-group">
-                    <span class="input-group-lg ">Название:</span>
-                    <spring_form:input  path="name" type="text" class="form-control" name = "name" placeholder="" ></spring_form:input>
-                </p>
-                <h2></h2>
-                <p class="input-group">
-                    <span class="input-group-lg">Цена:</span>
-                    <spring_form:input path="price" type="text" class="form-control" name = "price" placeholder="" ></spring_form:input>
-                </p>
-                <h2></h2>
-                <p class="input-group">
-                    <span class="input-group-lg">Тип :</span>
-                        <spring_form:select path="type"  cssClass="form-control" >
-                            <spring_form:option  value="NONE" label="Выберите значение"/>
-                            <spring_form:options items="${typeList}" />
-                        </spring_form:select>
-                </p>
-                <h2></h2>
-                <p class="input-group-lg">
-                    <span class="input-group-lg">Описание: </span>
-                    <spring_form:textarea path ="description"  type="text" class="form-control" name = "description" placeholder="" ></spring_form:textarea>
-                </p>
-
-                <h2></h2>
-                <p><spring_form:button class="btn btn-primary btn-lg" role="button">Добавить</spring_form:button></p>
-
-            </spring_form:form>
-        </div>
+        <h2>Страница администрирования</h2>
     </div>
     <!-- /.row -->
 
@@ -105,16 +76,16 @@
     })
 </script>
 
-<div class="container">
+<%--<div class="container">--%>
     <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p></p>
-            </div>
-        </div>
-    </footer>
-</div>
+    <%--<footer>--%>
+        <%--<div class="row">--%>
+            <%--<div class="col-lg-12">--%>
+                <%--<p></p>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</footer>--%>
+<%--</div>--%>
 
 </body>
 
