@@ -16,19 +16,17 @@
             <h2/>
             <div class="jumbotron">
 
-                <form method="POST" action="/admin" class="form-control">
+                <form method="POST" action="/admin" class="form-group-lg">
                     <h2 class="form-heading">Вход</h2>
                     <h3/>
                     <div class="form-group ${error != null ? 'has-error' : ''}">
-                            <span>${message}</span>
+                        <span>${message}</span>
                         <input name="username" type="text" class="form-control" placeholder="Имя пользователя"
                                autofocus="true"/>
                         <h3/>
                         <input name="password" type="password" class="form-control" placeholder="Пароль"/>
                         <h3/>
-
-                            <span>${error}</span>
-
+                        <span>${error}</span>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>

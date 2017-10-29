@@ -18,8 +18,8 @@ import java.util.List;
  * Created by adementev on 10.10.2017.
  */
 @Controller
-@RequestMapping("/portfolio")
-public class PortfolioController {
+@RequestMapping("/gallery")
+public class GalleryController {
 
     @Autowired
     private ProductService productService;
@@ -28,8 +28,8 @@ public class PortfolioController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getPotfolio(){
-        ModelAndView modelAndView = new ModelAndView("portfolio/portfolio");
+    public ModelAndView gallery(){
+        ModelAndView modelAndView = new ModelAndView("gallery/gallery");
         List<Product> products =  productService.getAll();
         List<Offer> offers = offerService.getByActive();
         modelAndView.addObject("products",products);
@@ -38,8 +38,8 @@ public class PortfolioController {
     }
 
     @RequestMapping(value = "item/{id}", method = RequestMethod.GET)
-    public ModelAndView getPotfolioItem(@PathVariable long id){
-        ModelAndView modelAndView = new ModelAndView("portfolio/portfolio_item");
+    public ModelAndView galleryItem(@PathVariable long id){
+        ModelAndView modelAndView = new ModelAndView("gallery/gallery_item");
         Product product =  productService.getById(id);
         modelAndView.addObject("product",product);
         modelAndView.addObject("offers",offerService.getByActive());

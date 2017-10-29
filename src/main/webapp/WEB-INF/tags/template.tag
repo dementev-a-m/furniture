@@ -51,7 +51,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a href="/portfolio">Портфолио</a>
+                    <a href="/gallery">Галерея</a>
                 </li>
                 <li>
                     <a href="/about">О компании</a>

@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a href="/portfolio">Портфолио</a>
+                    <a href="/gallery">Галерея</a>
                 </li>
                 <li>
                     <a href="/about">О компании</a>
@@ -55,10 +55,36 @@
 
     <div class="row">
 
-        <h2>Страница администрирования</h2>
+        <h2>Добро пожаловать на страниу администрирования</h2>
     </div>
     <!-- /.row -->
+    <div class="row">
 
+
+        <div class="form-group-sm">
+            <a href="/admin/setting_product">
+               <h1>Настройка галереи</h1>
+            </a>
+        </div>
+
+        <div class="form-group-sm">
+            <a href="/admin/setting_product">
+                <h1>Настройка информации о компании</h1>
+            </a>
+        </div>
+        <div class="form-group-sm">
+            <a href="/admin/setting_product">
+                <h1>Настройка слайдов</h1>
+            </a>
+        </div>
+        <div class="form-group-sm">
+        <a href="/admin/setting_product">
+            <h1>Настройка вкладки контакты</h1>
+        </a>
+    </div>
+
+
+    </div>
 
 </div>
 <!-- /.container -->

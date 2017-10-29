@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a href="/portfolio">Портфолио</a>
+                    <a href="/gallery">Портфолио</a>
                 </li>
                 <li>
                     <a href="/about">О компании</a>

@@ -67,12 +67,12 @@
             <p></p>
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="page-header">Portfolio Heading</h2>
+                    <h2 class="page-header">Галерея</h2>
                 </div>
                 <c:forEach var="item" items="${products}">
 
                     <div class="col-md-4 col-sm-6">
-                        <a href="/portfolio/item/${item.id}">
+                        <a href="/gallery/item/${item.id}">
                             <img class="img-responsive img-portfolio img-thumbnail" src="/image/${item.image.id}" alt="">
                         </a>
                     </div>

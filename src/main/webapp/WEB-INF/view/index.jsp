@@ -73,7 +73,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Портфолио</h2>
+            <h2 class="page-header">Галерия</h2>
         </div>
         <c:forEach var="item" items="${products}">
 
@@ -89,20 +89,17 @@
     <!-- Features Section -->
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Modern Business Features</h2>
+            <h2 class="page-header">Заказать мебель очень просто</h2>
         </div>
         <div class="col-md-6">
-            <p>The Modern Business template by Start Bootstrap includes:</p>
             <ul>
-                <li><strong>Bootstrap v3.2.0</strong>
-                </li>
-                <li>jQuery v1.11.0</li>
-                <li>Font Awesome v4.1.0</li>
-                <li>Working PHP contact form with validation</li>
-                <li>Unstyled page elements for easy customization</li>
-                <li>17 HTML pages</li>
+                <li><strong>Знакомимся, обсуждаем проект, ориентируемся в бюджете.</strong></li>
+                <li><strong>Если по бюджету и остальному - ОК, то едем на замер. (Шаховская - замер бесплатно, по району 1000 руб, если дальше обговариваем стоимость. Если заказываете, то стоимость замера вычитаем из стоимости заказа).</strong></li>
+                <li><strong>На основании замера и ТЗ от заказчика разрабатываем проект, согласовываем и утверждаем его. Мы строим 3D модель. Прорабатываем фасадную часть, наполнение и декор.</strong></li>
+                <li><strong>Когда всем все понятно - подписываем договор и берем предоплату.(50% от суммы по договору).</strong></li>
+                <li><strong>Изготовление заказа в цеху.</strong></li>
+                <li><strong>Организуем доставку до места установки.Собираем и монтируем готовое изделие(10% от стоимости но не меньше 2500 руб).</strong></li>
             </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
         </div>
         <div class="col-md-6">
             <img class="img-responsive" src="http://placehold.it/700x450" alt="">

@@ -65,7 +65,7 @@
             <!-- Features Section -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="page-header">Modern Business Features</h2>
+                    <h2 class="page-header">Контакты</h2>
                 </div>
                 <div class="col-md-6">
                     <p>The Modern Business template by Start Bootstrap includes:</p>

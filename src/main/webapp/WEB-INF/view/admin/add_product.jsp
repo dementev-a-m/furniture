@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a href="/portfolio">Портфолио</a>
+                    <a href="/gallery">Портфолио</a>
                 </li>
                 <li>
                     <a href="/about">О компании</a>
@@ -54,8 +54,8 @@
     <p></p>
 
     <div class="row">
-        <div class="jumbotron">
 
+            <div class="col-md-6">
             <spring_form:form method="post" modelAttribute="product" action="product_added">
                 <p class="input-group">
                     <span class="input-group-lg ">Название:</span>
@@ -84,7 +84,26 @@
                 <p><spring_form:button class="btn btn-primary btn-lg" role="button">Добавить</spring_form:button></p>
 
             </spring_form:form>
-        </div>
+            </div>
+            <div class="col-md-6">
+                <c:if test="${empty product.image}">
+                <form action="/load_image" method="post"
+                      enctype="multipart/form-data">
+                    <table>
+                        <tr>
+                            <td><b>Изображение:</b></td>
+                            <td><input type="file" name="file"></td>
+                            <td><input type="submit" value="загрузить изображение"></td>
+                        </tr>
+                    </table>
+                </form>
+                </c:if>
+                <c:if test="${not empty product.image}">
+                    <img class="img-responsive" src="/image/${image.id}" alt="">
+                </c:if>
+            </div>
+
+
     </div>
     <!-- /.row -->
 
