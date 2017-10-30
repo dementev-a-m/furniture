@@ -55,35 +55,24 @@
 
     <div class="row">
 
-            <div class="col-md-6">
-            <spring_form:form method="post" modelAttribute="product" action="add_product_step2">
-                <p class="input-group">
-                    <span class="input-group-lg ">Название:</span>
-                    <spring_form:input  path="name" type="text" class="form-control" name = "name" placeholder="" ></spring_form:input>
-                </p>
-                <h2></h2>
-                <p class="input-group">
-                    <span class="input-group-lg">Цена:</span>
-                    <spring_form:input path="price" type="text" class="form-control" name = "price" placeholder="" ></spring_form:input>
-                </p>
-                <h2></h2>
-                <p class="input-group">
-                    <span class="input-group-lg">Тип :</span>
-                        <spring_form:select path="type"  cssClass="form-control" >
-                            <spring_form:option  value="NONE" label="Выберите значение"/>
-                            <spring_form:options items="${typeList}" />
-                        </spring_form:select>
-                </p>
-                <h2></h2>
-                <p class="input-group-lg">
-                    <span class="input-group-lg">Описание: </span>
-                    <spring_form:textarea path ="description"  type="text" class="form-control" name = "description" placeholder="" ></spring_form:textarea>
-                </p>
-                    <%--<spring_form:input path="image" type ="image" name = "image"/>--%>
-                <h2></h2>
-                <p><spring_form:button class="btn btn-primary btn-lg" role="button">Добавить</spring_form:button></p>
+        <div class="col-md-6">
+            <c:if test="${empty product.image}">
+                <form class = "form-group-lg" action="/load_image" method="post"
+                      enctype="multipart/form-data">
+                    <table>
+                        <tr>
+                            <td><b>Изображение:</b></td>
+                            <td><input class = "fa-file-image-o" type="file" name="file"></td>
+                            <td><input class="btn btn-primary btn-lg" type="submit" value="загрузить изображение"></td>
+                        </tr>
+                    </table>
+                </form>
+            </c:if>
+            <c:if test="${not empty product.image}">
+                <img class="img-responsive" src="/image/${image.id}" alt="">
+            </c:if>
+        </div>
 
-            </spring_form:form>
 
     </div>
     <!-- /.row -->

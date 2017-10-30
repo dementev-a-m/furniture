@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import ru.dementev.furniture.entity.Image;
 import ru.dementev.furniture.entity.Product;
+import ru.dementev.furniture.service.ImageService;
 import ru.dementev.furniture.service.ProductService;
 
 
@@ -28,6 +29,8 @@ public class AdminProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ImageService imageService;
 
     @RequestMapping(value = {"product_add"},method = RequestMethod.GET)
     public ModelAndView getAddProductView(@ModelAttribute("product")Product product,ModelAndView modelAndView){
@@ -48,20 +51,22 @@ public class AdminProductController {
     }
 
     @RequestMapping(value = "setting_product",method = RequestMethod.GET)
-    public ModelAndView getSettingProductsView(){
+    public ModelAndView getSettingProductsView(@ModelAttribute("product")Product product){
         ModelAndView modelAndView = new ModelAndView("admin/setting_product");
         modelAndView.addObject("products", productService.getAll());
 
         return modelAndView;
     }
-
+    @RequestMapping(value = "add_product_step2", method = RequestMethod.POST)
+    public ModelAndView getAddProductStep2(@ModelAttribute("product")Product product){
+        ModelAndView modelAndView = new ModelAndView("admin/add_product_step2");
+        modelAndView.addObject("product", product);
+        return modelAndView;
+    }
     @RequestMapping("product_added")
-    public ModelAndView createdProduct(@ModelAttribute("product")Product product,@ModelAttribute("image")Image image ){
-        ModelAndView modelAndView = new ModelAndView("application/created");
-        if (image!= null) {
-            product.setImage(image);
-            System.out.println("Image != nu;;");
-        }
+    public ModelAndView createdProduct(@ModelAttribute("product")Product product){
+        ModelAndView modelAndView = new ModelAndView("admin/added_product");
+        modelAndView.addObject("product",product);
         productService.set(product);
         return modelAndView;
     }
