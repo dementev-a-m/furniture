@@ -8,6 +8,9 @@
 
 <page:template>
     <jsp:body>
+        <head>
+            <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+        </head>
         <!-- Header Carousel -->
         <header id="myCarousel" class="carousel slide">
             <!-- Indicators -->
@@ -81,7 +84,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+                    <div id="map" class="img-responsive img-thumbnail" style="width: 600px; height: 400px"></div>
                 </div>
             </div>
             <!-- /.row -->
@@ -95,6 +98,29 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src="/resources/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+                ymaps.ready(init);
+            var myMap,
+                myPlacemark;
+
+            function init(){
+                myMap = new ymaps.Map ("map", {
+                    center: [56.028813, 35.498253],
+                    zoom: 15
+                });
+
+                myPlacemark = new ymaps.Placemark([56.028813, 35.498253], {
+
+                    hintContent: 'ФормаМебели',
+                    balloonContent: '<strong>ФормаМебели</strong>',
+                    iconCaption: 'ФормаМебели'
+
+                },{preset: 'islands#redDotIconWithCaption'
+                });
+
+                myMap.geoObjects.add(myPlacemark);
+            }
+        </script>
 
         <!-- Script to Activate the Carousel -->
         <script>

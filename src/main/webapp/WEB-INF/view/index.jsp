@@ -77,9 +77,9 @@
         </div>
         <c:forEach var="item" items="${products}">
 
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-md-5 col-sm-6 col-sm-7">
                 <a href="/gallery/item/${item.id}">
-                    <img class="img-responsive img-portfolio img-thumbnail" src="/image/${item.image.id}" alt="">
+                    <img class=" img-portfolio img-thumbnail" src="/image/${item.image.id}" alt="">
                 </a>
             </div>
         </c:forEach>
@@ -123,7 +123,6 @@
         interval: 5000 //changes the speed
     })
 </script>
-
 
 
        </jsp:body>

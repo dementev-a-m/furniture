@@ -2,6 +2,7 @@ package ru.dementev.furniture.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.dementev.furniture.entity.Offer;
@@ -16,6 +17,7 @@ public class OfferServiceImpl implements OfferService {
     private OfferRepository repository;
 
     @Override
+    @Cacheable(value = "offers",sync = true)
     public List<Offer> getAll() {
         return repository.findAll();
     }
@@ -26,8 +28,9 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
+    @CachePut(value = "offers")
     public Offer set(Offer offer) {
-        return repository.save(offer);
+        return repository.saveAndFlush(offer);
     }
 
     @Override

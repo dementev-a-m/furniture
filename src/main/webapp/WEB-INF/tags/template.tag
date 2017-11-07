@@ -17,6 +17,8 @@
     <spring:url value="/resources/css/modern-business.css" var="startertemplate"/>
     <link href="${startertemplate}" rel="stylesheet" />
 
+    <script:url value="/resources/css/imge_con.css" var ="image_con"/>
+    <link href="${image_con}" rel="stylesheet"/>
     <!-- Custom Fonts -->
     <spring:url value="/resources/css/font-awesome.min.css" var="fontawesome"/>
     <link href="${fontawesome}" rel="stylesheet" />

@@ -13,6 +13,7 @@ import ru.dementev.furniture.service.ImageService;
 import ru.dementev.furniture.service.ProductService;
 
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -33,16 +34,15 @@ public class AdminProductController {
     private ImageService imageService;
 
     @RequestMapping(value = {"product_add"},method = RequestMethod.GET)
-    public ModelAndView getAddProductView(@ModelAttribute("product")Product product,ModelAndView modelAndView){
-         modelAndView.setViewName("admin/add_product");
+    public ModelAndView getAddProductView(@ModelAttribute("product")Product product,ModelAndView modelAndView, HttpSession session){
+         modelAndView.setViewName("admin/product/add_product");
         if(product == null)
             product = new Product();
+        session.setMaxInactiveInterval(900);
+        session.setAttribute("image", null);
 
-        product.setImage((Image) modelAndView.getModelMap().get("image"));
-        System.out.println("Создается новый продукт");
         modelAndView.addObject("product", product);
-        if(product.getImage() != null)
-            System.out.println("Id в product add"+product.getImage().getId());
+
         if(typeList.size() == 0)
             createdListType();
         modelAndView.addObject("typeList",typeList);
@@ -52,40 +52,49 @@ public class AdminProductController {
 
     @RequestMapping(value = "setting_product",method = RequestMethod.GET)
     public ModelAndView getSettingProductsView(@ModelAttribute("product")Product product){
-        ModelAndView modelAndView = new ModelAndView("admin/setting_product");
+        ModelAndView modelAndView = new ModelAndView("admin/product/setting_product");
         modelAndView.addObject("products", productService.getAll());
 
         return modelAndView;
     }
     @RequestMapping(value = "add_product_step2", method = RequestMethod.POST)
-    public ModelAndView getAddProductStep2(@ModelAttribute("product")Product product){
-        ModelAndView modelAndView = new ModelAndView("admin/add_product_step2");
-        modelAndView.addObject("product", product);
+    public ModelAndView getAddProductStep2(@ModelAttribute("product")Product product,HttpSession session){
+        ModelAndView modelAndView = new ModelAndView("admin/product/add_product_step2");
+
+        session.setAttribute("product", product);
+
+
         return modelAndView;
     }
     @RequestMapping("product_added")
-    public ModelAndView createdProduct(@ModelAttribute("product")Product product){
-        ModelAndView modelAndView = new ModelAndView("admin/added_product");
-        modelAndView.addObject("product",product);
+    public ModelAndView createdProduct(HttpSession session){
+        ModelAndView modelAndView = new ModelAndView("admin/product/added_product");
+        Product product = (Product) session.getAttribute("product");
+        Image image = (Image) session.getAttribute("image");
+        session.invalidate();
+        if(image != null)
+            product.setImage(image);
         productService.set(product);
+        modelAndView.addObject("product",product);
+
         return modelAndView;
     }
 
     @RequestMapping(value = "product_item/{id}", method = RequestMethod.GET)
-    public ModelAndView getPotfolioItem(@PathVariable long id){
-        ModelAndView modelAndView = new ModelAndView("admin/product_item");
+    public ModelAndView getPotfolioItem(@PathVariable long id, HttpSession session){
+        ModelAndView modelAndView = new ModelAndView("admin/product/product_item");
         Product product =  productService.getById(id);
         modelAndView.addObject("product",product);
-
+        session.setMaxInactiveInterval(900);
+        session.setAttribute("image",product.getImage());
         return  modelAndView;
     }
 
-    @RequestMapping(value = "product_item/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "product_item/delete/{id}")
     public ModelAndView deletePortfolioItem(@PathVariable long id){
         productService.remove(id);
-        ModelAndView modelAndView = new ModelAndView("admin/setting_product");
+        ModelAndView modelAndView = new ModelAndView("redirect:/admin/product/setting_product");
         modelAndView.addObject("products", productService.getAll());
-
         return modelAndView;
     }
 

@@ -24,7 +24,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public Customer set(Customer customer) {
-        return repository.save(customer);
+        return repository.saveAndFlush(customer);
     }
 
     public String remove(long id) {

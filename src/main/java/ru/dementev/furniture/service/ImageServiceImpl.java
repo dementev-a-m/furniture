@@ -22,11 +22,13 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
+    @CachePut(value = "image")
     public Image set(Image image) {
-        return repository.save(image);
+        return repository.saveAndFlush(image);
     }
 
     @Override
+    @CacheEvict(value = "image", allEntries = true)
     public String remove(long id) {
         repository.delete(id);
         return "Запись удалена";

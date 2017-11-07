@@ -1,18 +1,36 @@
 <!DOCTYPE html>
+<%@tag description="Template Site tag" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="sec"
-           uri="http://www.springframework.org/security/tags"%>
-<html>
+<%@attribute name="title" fragment="true" %>
+
 <head>
-    <title>Форма мебели</title>
+    <meta charset="utf-8">
+    <title><jsp:invoke fragment="title"/>Форма мебели</title>
+
+    <!-- Bootstrap Core CSS -->
     <spring:url value="/resources/css/bootstrap.css" var="bootstrap"/>
-    <spring:url value="/resources/css/modern-business.css" var="startertemplate"/>
     <link href="${bootstrap}" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <spring:url value="/resources/css/modern-business.css" var="startertemplate"/>
     <link href="${startertemplate}" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <spring:url value="/resources/css/font-awesome.min.css" var="fontawesome"/>
+    <link href="${fontawesome}" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <spring:url value="/resources/js/jquery.js" var="jqueryjs"/>
+    <script src="${jqueryjs}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <spring:url value="/resources/js/bootstrap.min.js" var="js"/>
+    <script src="${js}"></script>
+
 </head>
+
 <body>
 
 
@@ -33,7 +51,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a href="/gallery">Портфолио</a>
+                    <a href="/gallery">Галерея</a>
                 </li>
                 <li>
                     <a href="/about">О компании</a>
@@ -42,7 +60,10 @@
                     <a href="/contact">Контакты</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/logout"/>">Выход</a>
+                    <a href="/admin">Администриование</a>
+                </li>
+                <li>
+                    <a href="/logout">Выход</a>
                 </li>
             </ul>
         </div>
@@ -50,42 +71,9 @@
     </div>
     <!-- /.container -->
 </nav>
-<div class="container">
-    <p></p>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="page-header">Галерия</h2>
-            <p><a class="btn btn-default btn-lg" role="button" href="product_add">Добавить</a></p>
-            <h2/>
-        </div>
-        <c:forEach var="item" items="${products}">
+<jsp:doBody/>
 
-            <div class="col-sm-4">
-                <a href="product_item/${item.id}">
-                    <img class="img-responsive img-portfolio img-thumbnail" src="/image/${item.image.id}" alt="">
-                </a>
-            </div>
-        </c:forEach>
-    </div>
-    <!-- /.row -->
-
-
-</div>
-<!-- /.container -->
-
-<!-- jQuery -->
-<script src="/resources/js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/resources/js/bootstrap.min.js"></script>
-
-<!-- Script to Activate the Carousel -->
-<script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-</script>
 
 <div class="container">
     <!-- Footer -->

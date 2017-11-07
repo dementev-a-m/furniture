@@ -1,14 +1,9 @@
 package ru.dementev.furniture.entity;
 
 
-
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-import ru.dementev.furniture.entity.enums.ProductTypeEnum;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Arrays;
+
 
 @Entity
 @Table(name = "product")
@@ -16,7 +11,6 @@ public class Product implements Serializable{
     private long id;
     private Image image;
     private String name;
-    private double price;
     private String type;
     private String description;
     public Product() {
@@ -38,14 +32,6 @@ public class Product implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-    }
-    @Column(name = "price")
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -80,7 +66,6 @@ public class Product implements Serializable{
                 "id=" + id +
                 ", image=" + image +
                 ", name='" + name + '\'' +
-                ", price=" + price +
                 ", type='" + type + '\'' +
                 ", description='" + description + '\'' +
                 '}';
