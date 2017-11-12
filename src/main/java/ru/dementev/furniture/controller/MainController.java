@@ -27,8 +27,8 @@ public class MainController {
     private OfferService offerService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getMainView() {
-        ModelAndView modelAndView = new ModelAndView("index");
+    public ModelAndView getMainView(ModelAndView modelAndView) {
+        modelAndView.setViewName("index");
         List<Product> products =  productService.getAll();
         List<Offer> offers = offerService.getByActive();
         modelAndView.addObject("products",products);

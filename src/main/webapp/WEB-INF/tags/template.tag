@@ -61,7 +61,9 @@
                 <li>
                     <a href="/contact">Контакты</a>
                 </li>
-
+                <li>
+                    <a href="/application">Оставить заявку</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

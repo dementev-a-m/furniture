@@ -19,15 +19,15 @@ public class AboutController {
     private OfferService offerService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getAbout(){
-        ModelAndView modelAndView = new ModelAndView("/about/about");
+    public ModelAndView getAbout(ModelAndView modelAndView){
+        modelAndView.setViewName("/about/about");
         modelAndView.addObject("offers",offerService.getByActive());
         return modelAndView;
     }
 
     @RequestMapping(value = "more/{id}", method = RequestMethod.GET)
-    public ModelAndView getAboutMoreInfo(@PathVariable long id){
-        ModelAndView modelAndView = new ModelAndView("/about/aboutmoreinfo");
+    public ModelAndView getAboutMoreInfo(@PathVariable long id,ModelAndView modelAndView){
+        modelAndView.setViewName("/about/item_about");
         modelAndView.addObject("offers",offerService.getByActive());
         return modelAndView;
     }

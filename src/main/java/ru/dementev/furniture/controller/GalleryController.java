@@ -28,8 +28,8 @@ public class GalleryController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView gallery(){
-        ModelAndView modelAndView = new ModelAndView("gallery/gallery");
+    public ModelAndView gallery(ModelAndView modelAndView){
+        modelAndView.setViewName("gallery/gallery");
         List<Product> products =  productService.getAll();
         List<Offer> offers = offerService.getByActive();
         modelAndView.addObject("products",products);
@@ -38,8 +38,8 @@ public class GalleryController {
     }
 
     @RequestMapping(value = "item/{id}", method = RequestMethod.GET)
-    public ModelAndView galleryItem(@PathVariable long id){
-        ModelAndView modelAndView = new ModelAndView("gallery/gallery_item");
+    public ModelAndView galleryItem(@PathVariable long id,ModelAndView modelAndView){
+        modelAndView.setViewName("gallery/gallery_item");
         Product product =  productService.getById(id);
         modelAndView.addObject("product",product);
         modelAndView.addObject("offers",offerService.getByActive());

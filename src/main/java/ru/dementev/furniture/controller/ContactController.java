@@ -20,8 +20,8 @@ public class ContactController {
     @Autowired
     private OfferService offerService;
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getContactInfo(){
-        ModelAndView modelAndView = new ModelAndView("contact/contact");
+    public ModelAndView getContactInfo(ModelAndView modelAndView){
+        modelAndView.setViewName("contact/contact");
         modelAndView.addObject("offers",offerService.getByActive());
         return modelAndView;
     }

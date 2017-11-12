@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by adementev on 28.07.2017.
@@ -13,21 +13,22 @@ import java.sql.Date;
 @Entity
 @Table(name = "customer")
 
-public class Customer implements Serializable {
+public class Application implements Serializable {
     private long id;
     private int version;
     private String firstName;
     private String lastName;
     private String middleName;
     private Date birthday;
-
+    private String status;
     private String email;
     private String phone;
+    private Date date = new Date();
+    private String comment;
+    private Address address;
 
 
-
-
-    public Customer() {
+    public Application() {
     }
 
 
@@ -90,6 +91,25 @@ public class Customer implements Serializable {
         this.birthday = birthday;
     }
 
+    @Column(name = "status", length = 20)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date", insertable = false)
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Column(name = "email", length = 50)
     public String getEmail() {
         return email;
@@ -108,10 +128,28 @@ public class Customer implements Serializable {
         this.phone = phone;
     }
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "address_id")
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @Column(name = "commment", length = 250)
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Application{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lactName='" + lastName + '\'' +
@@ -128,16 +166,16 @@ public class Customer implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Customer customer = (Customer) o;
+        Application application = (Application) o;
 
-        if (id != customer.id) return false;
-        if (version != customer.version) return false;
-        if (firstName != null ? !firstName.equals(customer.firstName) : customer.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(customer.lastName) : customer.lastName != null) return false;
-        if (middleName != null ? !middleName.equals(customer.middleName) : customer.middleName != null) return false;
-        if (birthday != null ? !birthday.equals(customer.birthday) : customer.birthday != null) return false;
-        if (email != null ? !email.equals(customer.email) : customer.email != null) return false;
-        return phone != null ? phone.equals(customer.phone) : customer.phone == null;
+        if (id != application.id) return false;
+        if (version != application.version) return false;
+        if (firstName != null ? !firstName.equals(application.firstName) : application.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(application.lastName) : application.lastName != null) return false;
+        if (middleName != null ? !middleName.equals(application.middleName) : application.middleName != null) return false;
+        if (birthday != null ? !birthday.equals(application.birthday) : application.birthday != null) return false;
+        if (email != null ? !email.equals(application.email) : application.email != null) return false;
+        return phone != null ? phone.equals(application.phone) : application.phone == null;
     }
 
     @Override

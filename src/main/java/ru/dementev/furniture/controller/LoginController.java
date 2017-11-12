@@ -20,17 +20,17 @@ public class LoginController {
 //    private UserService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(String error, String logout) {
-        ModelAndView model = new ModelAndView("login/login");
+    public ModelAndView login(String error, String logout,ModelAndView modelAndView ) {
+         modelAndView.setViewName("login/login");
         if (error != null) {
-            model.addObject("error", "Username or password is incorrect.");
+            modelAndView.addObject("error", "Username or password is incorrect.");
         }
 
         if (logout != null) {
-            model.addObject("message", "Logged out successfully.");
+            modelAndView.addObject("message", "Logged out successfully.");
         }
 
-        return model;
+        return modelAndView;
     }
     @RequestMapping(value = "/logout")
     public String logout(){

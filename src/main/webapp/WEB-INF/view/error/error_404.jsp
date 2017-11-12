@@ -13,11 +13,11 @@
         <!-- Portfolio Section -->
             <div class="row">
 
-                <div class="col-lg-12">
+                <%--<div class="col-lg-12">--%>
                     <h1></h1>
-                    <img class="img-responsive img-portfolio img-hover" src="http://socext.com/images/404_page.png" alt="">
+                    <img class="img-responsive" src="http://socext.com/images/404_page.png" alt="">
                     <h1>Страница не найдена!</h1>
-                </div>
+                <%--</div>--%>
             </div>
         </div>
     </jsp:body>

@@ -26,8 +26,8 @@ public class ImageController {
         return image;
     }
     @RequestMapping(value = "/load_image", method = RequestMethod.POST)
-    public ModelAndView loadImage(@RequestParam("file") MultipartFile file,HttpSession session){
-        ModelAndView modelAndView = new ModelAndView("redirect:/admin/product_added");
+    public ModelAndView loadImage(@RequestParam("file") MultipartFile file,HttpSession session,ModelAndView modelAndView){
+        modelAndView.setViewName("redirect:/admin/product_added");
         Image image = null;
         if(!file.isEmpty())
             try {
@@ -35,8 +35,6 @@ public class ImageController {
                 byte[] imageBytes = file.getBytes();
 
             image.setImage(imageBytes);
-//            service.set(image);
-
 
             } catch (IOException e) {
                 e.printStackTrace();

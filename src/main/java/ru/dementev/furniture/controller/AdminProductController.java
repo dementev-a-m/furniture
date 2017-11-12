@@ -51,24 +51,28 @@ public class AdminProductController {
     }
 
     @RequestMapping(value = "setting_product",method = RequestMethod.GET)
-    public ModelAndView getSettingProductsView(@ModelAttribute("product")Product product){
-        ModelAndView modelAndView = new ModelAndView("admin/product/setting_product");
+    public ModelAndView getSettingProductsView(@ModelAttribute("product")Product product, ModelAndView modelAndView){
+        modelAndView.setViewName("admin/product/setting_product");
         modelAndView.addObject("products", productService.getAll());
 
         return modelAndView;
     }
     @RequestMapping(value = "add_product_step2", method = RequestMethod.POST)
-    public ModelAndView getAddProductStep2(@ModelAttribute("product")Product product,HttpSession session){
-        ModelAndView modelAndView = new ModelAndView("admin/product/add_product_step2");
-
+    public ModelAndView getAddProductStep2(@ModelAttribute("product")Product product,HttpSession session,ModelAndView modelAndView){
+        modelAndView.setViewName("admin/product/add_product_step2");
+        Product product1 = (Product) session.getAttribute("product");
+        if(product1!= null){
+            product.setId(product1.getId());
+            product.setImage(product1.getImage());
+        }
         session.setAttribute("product", product);
 
 
         return modelAndView;
     }
     @RequestMapping("product_added")
-    public ModelAndView createdProduct(HttpSession session){
-        ModelAndView modelAndView = new ModelAndView("admin/product/added_product");
+    public ModelAndView createdProduct(HttpSession session,ModelAndView modelAndView){
+        modelAndView.setViewName("admin/product/added_product");
         Product product = (Product) session.getAttribute("product");
         Image image = (Image) session.getAttribute("image");
         session.invalidate();
@@ -81,26 +85,28 @@ public class AdminProductController {
     }
 
     @RequestMapping(value = "product_item/{id}", method = RequestMethod.GET)
-    public ModelAndView getPotfolioItem(@PathVariable long id, HttpSession session){
-        ModelAndView modelAndView = new ModelAndView("admin/product/product_item");
+    public ModelAndView getPotfolioItem(@PathVariable long id, HttpSession session, ModelAndView modelAndView){
+        modelAndView.setViewName("admin/product/product_item");
         Product product =  productService.getById(id);
         modelAndView.addObject("product",product);
         session.setMaxInactiveInterval(900);
+        session.setAttribute("product",product);
         session.setAttribute("image",product.getImage());
         return  modelAndView;
     }
 
     @RequestMapping(value = "product_item/delete/{id}")
-    public ModelAndView deletePortfolioItem(@PathVariable long id){
+    public ModelAndView deletePortfolioItem(@PathVariable long id,ModelAndView modelAndView){
         productService.remove(id);
-        ModelAndView modelAndView = new ModelAndView("redirect:/admin/product/setting_product");
+        modelAndView.setViewName("redirect:/admin/setting_product");
         modelAndView.addObject("products", productService.getAll());
         return modelAndView;
     }
 
     @RequestMapping( method = RequestMethod.GET)
-    public ModelAndView admin() {
-        return new ModelAndView("admin/admin");
+    public ModelAndView admin(ModelAndView modelAndView) {
+        modelAndView.setViewName("admin/admin");
+        return modelAndView;
     }
     private void createdListType(){
         typeList.put("Kitchen","Кухня");

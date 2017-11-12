@@ -63,6 +63,9 @@
                     <a href="/admin">Администриование</a>
                 </li>
                 <li>
+                    <a href="/admin/application">Заявки</a>
+                </li>
+                <li>
                     <a href="/logout">Выход</a>
                 </li>
             </ul>
