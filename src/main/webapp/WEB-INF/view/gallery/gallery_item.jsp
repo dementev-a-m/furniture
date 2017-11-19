@@ -80,8 +80,8 @@
         color: #ffffff;
         text-decoration: none;
         cursor: pointer;
-        transform: rotate( -180deg );
-        transition: transform 150ms ease;
+        /*transform: rotate( -180deg );*/
+        /*transition: transform 150ms ease;*/
     }
     @media only screen and (max-width: 700px){
         .images--content {
@@ -180,7 +180,6 @@
                 interval: 5000 //changes the speed
             })
         </script>
-
 
         <script src="/resources/js/image_con.js">
 

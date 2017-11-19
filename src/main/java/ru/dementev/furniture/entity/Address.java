@@ -1,5 +1,7 @@
 package ru.dementev.furniture.entity;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -11,8 +13,11 @@ import java.io.Serializable;
 public class Address implements Serializable{
 
     private long id;
+
     private String city;
+
     private String street;
+
     private String house;
     private String flat;
 

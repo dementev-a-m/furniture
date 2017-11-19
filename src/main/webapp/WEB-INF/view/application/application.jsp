@@ -20,42 +20,46 @@
                             <span class="input-group-lg ">Имя:</span>
                            <spring_form:input  path="firstName" type="text" class="form-control" name = "firstName" placeholder="" ></spring_form:input>
                         </p>
-                        <h2></h2>
-                        <p class="input-group">
+                        <h3></h3>
+                        <p class="input-group col-lg-6">
                             <span class="input-group-lg">Фамилия:</span>
                             <spring_form:input path="lastName" type="text" class="form-control" name = "lastName" placeholder="" ></spring_form:input>
                         </p>
-                        <h2></h2>
-                        <p class="input-group">
+                        <h3></h3>
+                        <p class="input-group col-lg-4">
                             <span class="input-group-lg">Номер телефона: </span>
-                            <spring_form:input path ="phone"  type="text" class="form-control" name = "phoneNumber" placeholder="" ></spring_form:input>
+                            <spring_form:input path ="phone"  type="text" class="form-control" name = "phoneNumber" placeholder="+7(XXX)XXX XX XX" ></spring_form:input>
                         </p>
-
-                        <h2></h2>
-                        <p class="input-group">
+                        <h3></h3>
+                        <p class="input-group col-lg-4">
+                            <span class="input-group-lg">Электронная почта: </span>
+                            <spring_form:input path ="email"  type="text" class="form-control" name = "phoneNumber" placeholder="" ></spring_form:input>
+                        </p>
+                        <h3></h3>
+                        <p class="input-group col-lg-4">
                             <span class="input-group-lg">Город: </span>
                             <spring_form:input path ="address.city"  type="text" class="form-control" name = "city" placeholder="" ></spring_form:input>
                         </p>
-                        <h2></h2>
+                        <h3></h3>
 
-                        <p class="input-group">
+                        <p class="input-group col-lg-6">
                             <span class="input-group-lg">Улица: </span>
                             <spring_form:input path ="address.street"  type="text" class="form-control" name = "street" placeholder="" ></spring_form:input>
                         </p>
-                        <h2></h2>
-                        <p class="input-group">
+                        <h3></h3>
+                        <p class="input-group col-lg-1">
                             <span class="input-group-lg">Дом: </span>
                             <spring_form:input path ="address.house"  type="text" class="form-control" name = "house" placeholder="" ></spring_form:input>
                         </p>
-                        <h2></h2>
-                        <p class="input-group">
+                        <h3></h3>
+                        <p class="input-group col-lg-1">
                             <span class="input-group-lg">Квартира: </span>
                             <spring_form:input path ="address.flat"  type="text" class="form-control" name = "flat" placeholder="" ></spring_form:input>
                         </p>
-                        <h2></h2>
-                        <p class="input-group col-sm-10">
+                        <h3></h3>
+                        <p class="input-group col-lg-10">
                             <span class="input-group-lg">Комментарий: </span>
-                            <spring_form:textarea path ="comment"  type="text" class="form-control" name = "flat" placeholder="" ></spring_form:textarea>
+                            <spring_form:textarea path ="comment" rows="8" type="text" class="form-control" name = "flat" placeholder="" ></spring_form:textarea>
                         </p>
 
                     <p><spring_form:button class="btn btn-primary btn-lg" role="button">Оставить заявку</spring_form:button></p>

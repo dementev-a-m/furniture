@@ -67,23 +67,13 @@
             <!-- Features Section -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="page-header">Modern Business Features</h2>
+                    <h2 class="page-header">${about.title}</h2>
                 </div>
                 <div class="col-md-6">
-                    <p>The Modern Business template by Start Bootstrap includes:</p>
-                    <ul>
-                        <li><strong>Bootstrap v3.2.0</strong>
-                        </li>
-                        <li>jQuery v1.11.0</li>
-                        <li>Font Awesome v4.1.0</li>
-                        <li>Working PHP contact form with validation</li>
-                        <li>Unstyled page elements for easy customization</li>
-                        <li>17 HTML pages</li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+                    <p>${about.description}</p>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive" src="/image/${about.image.id}" alt="">
                 </div>
             </div>
             <!-- /.row -->

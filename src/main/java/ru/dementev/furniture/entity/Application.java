@@ -1,6 +1,7 @@
 package ru.dementev.furniture.entity;
 
 
+import com.sun.istack.internal.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -16,12 +17,16 @@ import java.util.Date;
 public class Application implements Serializable {
     private long id;
     private int version;
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
     private String middleName;
     private Date birthday;
     private String status;
+
     private String email;
+    @NotNull
     private String phone;
     private Date date = new Date();
     private String comment;

@@ -22,23 +22,23 @@
 
                 <div class="form-group-sm">
                     <a href="/admin/setting_product">
-                        <h1>Настройка галереи</h1>
+                        <h2>Настройка галереи</h2>
                     </a>
                 </div>
 
                 <div class="form-group-sm">
-                    <a href="/admin/setting_product">
-                        <h1>Настройка информации о компании</h1>
+                    <a href="/admin/setting_about">
+                        <h2>Настройка информации о компании</h2>
                     </a>
                 </div>
                 <div class="form-group-sm">
                     <a href="/admin/setting_product">
-                        <h1>Настройка слайдов</h1>
+                        <h2>Настройка слайдов</h2>
                     </a>
                 </div>
                 <div class="form-group-sm">
                     <a href="/admin/setting_product">
-                        <h1>Настройка вкладки контакты</h1>
+                        <h2>Настройка вкладки контакты</h2>
                     </a>
                 </div>
 

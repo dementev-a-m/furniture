@@ -1,10 +1,14 @@
 package ru.dementev.furniture.entity;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Created by Антон Дементьев on 12.11.2017.
  */
-
-public class InfoAbout {
+@Entity
+@Table(name = "info_about")
+public class InfoAbout implements Serializable {
 
     private long id;
     private String title;
@@ -15,7 +19,9 @@ public class InfoAbout {
 
     public InfoAbout() {
     }
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -24,6 +30,7 @@ public class InfoAbout {
         this.id = id;
     }
 
+    @Column(name = "title", length = 25)
     public String getTitle() {
         return title;
     }
@@ -32,6 +39,7 @@ public class InfoAbout {
         this.title = title;
     }
 
+    @Column(name = "description", length = 2500)
     public String getDescription() {
         return description;
     }
@@ -40,6 +48,7 @@ public class InfoAbout {
         this.description = description;
     }
 
+    @Column(name = "short_description", length = 500)
     public String getShortDescription() {
         return shortDescription;
     }
@@ -48,6 +57,8 @@ public class InfoAbout {
         this.shortDescription = shortDescription;
     }
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "image_id")
     public Image getImage() {
         return image;
     }

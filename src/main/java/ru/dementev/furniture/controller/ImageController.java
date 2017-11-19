@@ -9,6 +9,7 @@ import ru.dementev.furniture.entity.Image;
 import ru.dementev.furniture.service.ImageService;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
@@ -26,12 +27,26 @@ public class ImageController {
         return image;
     }
     @RequestMapping(value = "/load_image", method = RequestMethod.POST)
-    public ModelAndView loadImage(@RequestParam("file") MultipartFile file,HttpSession session,ModelAndView modelAndView){
-        modelAndView.setViewName("redirect:/admin/product_added");
-        Image image = null;
+    public ModelAndView loadImage(@RequestParam("file") MultipartFile file,HttpSession session,ModelAndView modelAndView, HttpServletRequest request){
+        String[] referers = request.getHeader("referer").split("admin/");
+        switch (referers[1]){
+            case "add_item_about_step2":
+                modelAndView.setViewName("redirect:/admin/item_about_added");
+                break;
+
+            case "add_product_step2":
+                modelAndView.setViewName("redirect:/admin/product_added");
+                break;
+            default:
+                break;
+        }
+
+        
+        Image image = (Image) session.getAttribute("image");
+        if(image == null)
+            image = new Image();
         if(!file.isEmpty())
             try {
-            image = new Image();
                 byte[] imageBytes = file.getBytes();
 
             image.setImage(imageBytes);

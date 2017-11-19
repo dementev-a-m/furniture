@@ -41,9 +41,9 @@ $(document).on('click', '.images--block', function() {
         'alt': $(this).find('.images--origin').attr('alt')
     });
 });
-$(document).on('click', '.images--close--modal', function() {
-    $(this).closest('.images--modal').attr({'style':'display:none'});
-});
+// $(document).on('click', '.images--close--modal', function() {
+//     $(this).closest('.images--modal').attr({'style':'display:none'});
+// });
 $(document).on('click', '.images--modal', function() {
     $(this).get(0).style.display = 'none';
 });
