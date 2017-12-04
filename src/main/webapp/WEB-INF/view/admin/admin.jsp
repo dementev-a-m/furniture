@@ -32,7 +32,7 @@
                     </a>
                 </div>
                 <div class="form-group-sm">
-                    <a href="/admin/setting_product">
+                    <a href="/admin/setting_offer">
                         <h2>Настройка слайдов</h2>
                     </a>
                 </div>

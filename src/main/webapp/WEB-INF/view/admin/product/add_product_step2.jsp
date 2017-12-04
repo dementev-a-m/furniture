@@ -64,7 +64,7 @@
             }
             function next() {
                 var act = document.forms["form"];
-                act.action =   "/admin/product_added";
+                act.action =   "/admin/item_offer_added";
                 act.submit();
 
             }

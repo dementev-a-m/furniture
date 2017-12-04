@@ -37,6 +37,10 @@ public class ImageController {
             case "add_product_step2":
                 modelAndView.setViewName("redirect:/admin/product_added");
                 break;
+            case "add_item_offer_step2":
+                modelAndView.setViewName("redirect:/admin/item_offer_added");
+                break;
+
             default:
                 break;
         }

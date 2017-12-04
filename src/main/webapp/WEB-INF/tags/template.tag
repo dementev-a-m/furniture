@@ -7,6 +7,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="resources/image/favicon.ico" type="image/x-icon">
     <title><jsp:invoke fragment="title"/>Форма мебели</title>
 
     <!-- Bootstrap Core CSS -->
@@ -17,8 +18,6 @@
     <spring:url value="/resources/css/modern-business.css" var="startertemplate"/>
     <link href="${startertemplate}" rel="stylesheet" />
 
-    <script:url value="/resources/css/imge_con.css" var ="image_con"/>
-    <link href="${image_con}" rel="stylesheet"/>
     <!-- Custom Fonts -->
     <spring:url value="/resources/css/font-awesome.min.css" var="fontawesome"/>
     <link href="${fontawesome}" rel="stylesheet" />

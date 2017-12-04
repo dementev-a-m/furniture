@@ -7,6 +7,8 @@
 
 <head>
     <meta charset="utf-8">
+
+    <link rel="shortcut icon" href="resources/image/favicon.ico" type="image/x-icon">
     <title><jsp:invoke fragment="title"/>Форма мебели</title>
 
     <!-- Bootstrap Core CSS -->

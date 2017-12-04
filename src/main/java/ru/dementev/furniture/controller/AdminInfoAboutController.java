@@ -41,7 +41,7 @@ public class AdminInfoAboutController {
         return modelAndView;
     }
     @RequestMapping(value = "add_item_about_step2", method = RequestMethod.POST)
-    public ModelAndView addItemAboutStep2(@ModelAttribute("product")InfoAbout infoAbout, HttpSession session, ModelAndView modelAndView){
+    public ModelAndView addItemAboutStep2(@ModelAttribute("about")InfoAbout infoAbout, HttpSession session, ModelAndView modelAndView){
         modelAndView.setViewName("/admin/about/add_item_about_step2");
         InfoAbout infoAbout1 = (InfoAbout) session.getAttribute("about");
         if(infoAbout1!= null){

@@ -156,7 +156,7 @@
                     <h2 class="page-header">${product.name}</h2>
                 </div>
                 <div class="col-md-6">
-                    <p class="text-info">${product.description}</p>
+                    <h4 class="text-info">${product.description}</h4>
                 </div>
                 <div id="images--container" class="col-md-6">
                     <img class="img-responsive" src="/image/${product.image.id}" alt="">
