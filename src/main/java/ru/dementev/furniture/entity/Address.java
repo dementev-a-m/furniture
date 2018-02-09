@@ -1,7 +1,5 @@
 package ru.dementev.furniture.entity;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,7 +8,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "address")
-public class Address implements Serializable{
+public class Address implements Serializable {
 
     private long id;
 

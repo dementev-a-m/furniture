@@ -19,6 +19,7 @@ public class InfoAbout implements Serializable {
 
     public InfoAbout() {
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

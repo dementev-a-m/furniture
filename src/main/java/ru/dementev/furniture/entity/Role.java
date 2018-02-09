@@ -1,7 +1,6 @@
 package ru.dementev.furniture.entity;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by adementev on 26.10.2017.

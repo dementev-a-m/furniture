@@ -12,6 +12,7 @@ import ru.dementev.furniture.repository.UserRepository;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository repository;
+
     @Override
     public User findByUsername(String username) {
         return repository.findByUsername(username);

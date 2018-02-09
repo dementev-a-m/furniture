@@ -1,7 +1,5 @@
 package ru.dementev.furniture.entity;
 
-import org.hibernate.annotations.Fetch;
-
 import javax.persistence.*;
 
 /**

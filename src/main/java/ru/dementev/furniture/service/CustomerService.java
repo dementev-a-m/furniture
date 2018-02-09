@@ -8,10 +8,14 @@ import java.util.List;
  * Created by adementev on 13.09.2017.
  */
 public interface CustomerService {
-    public List<Application> getAll();
-    public Application getById(long id);
-    public Application set(Application application);
-    public String remove(long id);
-    public List<Application> getByName(String findByName);
+    List<Application> getAll();
+
+    Application getById(long id);
+
+    Application set(Application application);
+
+    String remove(long id);
+
+    List<Application> getByName(String findByName);
 
 }

@@ -10,6 +10,6 @@ import java.util.List;
  * Created by adementev on 11.10.2017.
  */
 @Repository
-public interface OfferRepository extends JpaRepository<Offer,Long>{
+public interface OfferRepository extends JpaRepository<Offer, Long> {
     List<Offer> findByActiveIsTrue();
 }

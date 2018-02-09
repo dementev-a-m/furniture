@@ -18,31 +18,32 @@ import ru.dementev.furniture.service.CustomerService;
 public class ApplicationController {
     @Autowired
     private CustomerService service;
-    @RequestMapping(value = "/application",method = RequestMethod.GET)
-    public ModelAndView getApplicationView(ModelAndView modelAndView){
+
+    @RequestMapping(value = "/application", method = RequestMethod.GET)
+    public ModelAndView getApplicationView(ModelAndView modelAndView) {
         modelAndView.setViewName("application/application");
-        Application application =  new Application();
+        Application application = new Application();
         application.setAddress(new Address());
         modelAndView.addObject("application", application);
         return modelAndView;
     }
 
     @RequestMapping("/application/created")
-    public ModelAndView createApplication(@ModelAttribute("application")Application application, ModelAndView modelAndView){
+    public ModelAndView createApplication(@ModelAttribute("application") Application application, ModelAndView modelAndView) {
         modelAndView.setViewName("application/created");
         service.set(application);
-    return modelAndView;
+        return modelAndView;
     }
 
     @RequestMapping("/admin/application")
-    public ModelAndView getListApplication(ModelAndView modelAndView){
+    public ModelAndView getListApplication(ModelAndView modelAndView) {
         modelAndView.setViewName("admin/application/list_application");
         modelAndView.addObject("application", service.getAll());
         return modelAndView;
     }
 
     @RequestMapping("/admin/application/{id}")
-    public ModelAndView getApplicationItem(@PathVariable long id, ModelAndView modelAndView){
+    public ModelAndView getApplicationItem(@PathVariable long id, ModelAndView modelAndView) {
         modelAndView.setViewName("admin/application/item_application");
         modelAndView.addObject("application", service.getById(id));
         return modelAndView;

@@ -8,5 +8,5 @@ import ru.dementev.furniture.entity.Image;
  * Created by adementev on 16.10.2017.
  */
 @Repository
-public interface ImageRepository extends JpaRepository<Image,Long> {
+public interface ImageRepository extends JpaRepository<Image, Long> {
 }

@@ -8,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.dementev.furniture.entity.Image;
 import ru.dementev.furniture.service.ImageService;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -21,15 +20,19 @@ import java.io.IOException;
 public class ImageController {
     @Autowired
     private ImageService service;
+
     @RequestMapping("/image/{id}")
-    public @ResponseBody byte[] getImage(@PathVariable long id){
-        byte[] image =  service.getById(id).getImage();
+    public
+    @ResponseBody
+    byte[] getImage(@PathVariable long id) {
+        byte[] image = service.getById(id).getImage();
         return image;
     }
+
     @RequestMapping(value = "/load_image", method = RequestMethod.POST)
-    public ModelAndView loadImage(@RequestParam("file") MultipartFile file,HttpSession session,ModelAndView modelAndView, HttpServletRequest request){
+    public ModelAndView loadImage(@RequestParam("file") MultipartFile file, HttpSession session, ModelAndView modelAndView, HttpServletRequest request) {
         String[] referers = request.getHeader("referer").split("admin/");
-        switch (referers[1]){
+        switch (referers[1]) {
             case "add_item_about_step2":
                 modelAndView.setViewName("redirect:/admin/item_about_added");
                 break;
@@ -45,20 +48,20 @@ public class ImageController {
                 break;
         }
 
-        
+
         Image image = (Image) session.getAttribute("image");
-        if(image == null)
+        if (image == null)
             image = new Image();
-        if(!file.isEmpty())
+        if (!file.isEmpty())
             try {
                 byte[] imageBytes = file.getBytes();
 
-            image.setImage(imageBytes);
+                image.setImage(imageBytes);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            session.setAttribute("image", image);
-            return modelAndView;
+        session.setAttribute("image", image);
+        return modelAndView;
     }
 }

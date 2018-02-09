@@ -15,6 +15,7 @@ import ru.dementev.furniture.repository.ImageRepository;
 public class ImageServiceImpl implements ImageService {
     @Autowired
     private ImageRepository repository;
+
     @Override
     @Cacheable(value = "image", sync = true)
     public Image getById(long id) {

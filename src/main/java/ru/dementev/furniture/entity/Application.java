@@ -86,7 +86,7 @@ public class Application implements Serializable {
     }
 
     @Column(name = "birth_date")
-   // @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    // @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public Date getBirthday() {
         return birthday;
@@ -177,7 +177,8 @@ public class Application implements Serializable {
         if (version != application.version) return false;
         if (firstName != null ? !firstName.equals(application.firstName) : application.firstName != null) return false;
         if (lastName != null ? !lastName.equals(application.lastName) : application.lastName != null) return false;
-        if (middleName != null ? !middleName.equals(application.middleName) : application.middleName != null) return false;
+        if (middleName != null ? !middleName.equals(application.middleName) : application.middleName != null)
+            return false;
         if (birthday != null ? !birthday.equals(application.birthday) : application.birthday != null) return false;
         if (email != null ? !email.equals(application.email) : application.email != null) return false;
         return phone != null ? phone.equals(application.phone) : application.phone == null;

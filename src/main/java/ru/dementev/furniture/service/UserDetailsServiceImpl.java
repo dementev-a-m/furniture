@@ -9,8 +9,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.dementev.furniture.entity.Role;
 import ru.dementev.furniture.entity.User;
-import ru.dementev.furniture.entity.enums.UserRoleEnum;
-import ru.dementev.furniture.repository.RoleRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userService.findByUsername(username);
         Set<GrantedAuthority> roles = new HashSet<>();
-        for(Role role: user.getRoles()){
+        for (Role role : user.getRoles()) {
             roles.add(new SimpleGrantedAuthority(role.getName()));
         }
 

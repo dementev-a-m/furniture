@@ -17,7 +17,8 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository repository;
-//    @Cacheable(value = "gallery",sync = true)
+
+    //    @Cacheable(value = "gallery",sync = true)
     public List<Product> getAll() {
         return repository.findAll();
     }
@@ -25,11 +26,13 @@ public class ProductServiceImpl implements ProductService {
     public Product getById(long id) {
         return repository.findOne(id);
     }
-//    @CachePut(value = "gallery")
+
+    //    @CachePut(value = "gallery")
     public Product set(Product product) {
         return repository.saveAndFlush(product);
     }
-//    @CacheEvict(value = "gallery", allEntries = true)
+
+    //    @CacheEvict(value = "gallery", allEntries = true)
     public String remove(long id) {
         repository.delete(id);
         return "Запись удалена";

@@ -15,6 +15,7 @@ public class InfoAboutServiceImpl implements InfoAboutService {
 
     @Autowired
     private InfoAboutRepository repository;
+
     @Override
     public List<InfoAbout> getAll() {
         return repository.findAll();

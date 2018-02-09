@@ -7,14 +7,16 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "product")
-public class Product implements Serializable{
+public class Product implements Serializable {
     private long id;
     private Image image;
     private String name;
     private String type;
     private String description;
+
     public Product() {
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -25,7 +27,8 @@ public class Product implements Serializable{
     public void setId(long id) {
         this.id = id;
     }
-    @Column(name ="name")
+
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -43,6 +46,7 @@ public class Product implements Serializable{
     public void setImage(Image image) {
         this.image = image;
     }
+
     @Column(name = "type")
     public String getType() {
         return type;
@@ -51,6 +55,7 @@ public class Product implements Serializable{
     public void setType(String type) {
         this.type = type;
     }
+
     @Column(name = "description", length = 1000)
     public String getDescription() {
         return description;

@@ -17,7 +17,7 @@ public class OfferServiceImpl implements OfferService {
     private OfferRepository repository;
 
     @Override
-    @Cacheable(value = "offers",sync = true)
+    @Cacheable(value = "offers", sync = true)
     public List<Offer> getAll() {
         return repository.findAll();
     }

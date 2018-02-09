@@ -1,7 +1,6 @@
 package ru.dementev.furniture.entity;
 
 import javax.persistence.*;
-import java.awt.*;
 
 /**
  * Created by adementev on 11.10.2017.
@@ -17,6 +16,7 @@ public class Offer {
 
     public Offer() {
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,6 +27,7 @@ public class Offer {
     public void setId(long id) {
         this.id = id;
     }
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "image_id")
     public Image getImage() {
@@ -45,6 +46,7 @@ public class Offer {
     public void setTitle(String title) {
         this.title = title;
     }
+
     @Column(name = "description", length = 500)
     public String getDescription() {
         return description;
@@ -53,6 +55,7 @@ public class Offer {
     public void setDescription(String description) {
         this.description = description;
     }
+
     @Column(name = "active")
     public Boolean getActive() {
         return active;

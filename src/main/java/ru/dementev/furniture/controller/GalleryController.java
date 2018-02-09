@@ -28,21 +28,21 @@ public class GalleryController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView gallery(ModelAndView modelAndView){
+    public ModelAndView gallery(ModelAndView modelAndView) {
         modelAndView.setViewName("gallery/gallery");
-        List<Product> products =  productService.getAll();
+        List<Product> products = productService.getAll();
         List<Offer> offers = offerService.getByActive();
-        modelAndView.addObject("products",products);
-        modelAndView.addObject("offers",offers);
+        modelAndView.addObject("products", products);
+        modelAndView.addObject("offers", offers);
         return modelAndView;
     }
 
     @RequestMapping(value = "item/{id}", method = RequestMethod.GET)
-    public ModelAndView galleryItem(@PathVariable long id,ModelAndView modelAndView){
+    public ModelAndView galleryItem(@PathVariable long id, ModelAndView modelAndView) {
         modelAndView.setViewName("gallery/gallery_item");
-        Product product =  productService.getById(id);
-        modelAndView.addObject("product",product);
-        modelAndView.addObject("offers",offerService.getByActive());
-        return  modelAndView;
+        Product product = productService.getById(id);
+        modelAndView.addObject("product", product);
+        modelAndView.addObject("offers", offerService.getByActive());
+        return modelAndView;
     }
 }
